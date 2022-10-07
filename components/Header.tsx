@@ -21,21 +21,24 @@ export default function Header({}: Props) {
             transition={{
                 duration: 1.5,
             }}
+            viewport={{ 
+                once: true
+            }}
             className='flex flex-row items-center'>
 
-            <Link href="#current-top">
+            <Link href="/#current-top">
                 <button className='heroButton'>Current Top</button>
             </Link>
 
-            <Link href="#features">
+            <Link href="/#features">
                 <button className='heroButton'>Features</button>
             </Link>
 
-            <Link href="#virtual-highscores">
-                <button className='heroButton'>Virtual Highscores</button>
+            <Link href="/userpage">
+                <button className='heroButton'>UserPage</button>
             </Link>
 
-            <Link href="#community">
+            <Link href="/#community">
                 <button className='heroButton'>Community</button>
             </Link>
         </motion.div>
@@ -53,6 +56,9 @@ export default function Header({}: Props) {
             }}
             transition={{
                 duration: 1.5,
+            }}
+            viewport={{ 
+                once: true
             }}
             className='flex flex-row items-center text-gray-300'>
 
