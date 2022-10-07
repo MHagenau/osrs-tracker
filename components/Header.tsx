@@ -1,6 +1,6 @@
 import React from 'react'
-import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
+import Link from 'next/link';
 
 type Props = {}
 
@@ -21,25 +21,24 @@ export default function Header({}: Props) {
             transition={{
                 duration: 1.5,
             }}
-            className='flex flex-row items-center'
-        >
+            className='flex flex-row items-center'>
 
-            <SocialIcon url="https://www.linkedin.com/in/morten-hagenau-935974116/" 
-            fgColor='gray' 
-            bgColor='transparent' 
-            />
+            <Link href="#current-top">
+                <button className='heroButton'>Current Top</button>
+            </Link>
 
-            <SocialIcon url="https://www.linkedin.com/in/morten-hagenau-935974116/" 
-            fgColor='gray' 
-            bgColor='transparent' 
-            />
+            <Link href="#features">
+                <button className='heroButton'>Features</button>
+            </Link>
 
-            <SocialIcon url="https://www.linkedin.com/in/morten-hagenau-935974116/" 
-            fgColor='gray' 
-            bgColor='transparent' 
-            />
+            <Link href="#virtual-highscores">
+                <button className='heroButton'>Virtual Highscores</button>
+            </Link>
+
+            <Link href="#community">
+                <button className='heroButton'>Community</button>
+            </Link>
         </motion.div>
-        
         
         <motion.div
             initial={{
@@ -55,18 +54,22 @@ export default function Header({}: Props) {
             transition={{
                 duration: 1.5,
             }}
-            className='flex flex-row items-center text-gray-300'
-        >
-            <SocialIcon
-            className='cursor-pointer'
-            network='email'
-            fgColor='gray'
-            bgColor='transparent'
-            />
+            className='flex flex-row items-center text-gray-300'>
 
-            <p className='uppercase hidden md:inline-flex text-sm text-gray-400'>
-                Get In Touch
-            </p>
+            <form> 
+                <div className="relative">
+                    <input id="search" placeholder="Username" required
+                           className='bg-[#333333] form-control block w-full px-3 py-1.5 text-base
+                                     font-normal text-gray-700 bg-clip-padding border border-solid
+                                     border-gray-700 rounded transition ease-in-out m-0 focus:text-gray-700
+                                     focus:border-[#F7AB0A] focus:border-opacity-40 focus:outline-none'/>
+                    
+                    <button type="submit" className='absolute right-3 top-1.5 transition-all
+                                        hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40'>
+                        Lookup
+                    </button>
+                </div>
+            </form>
         </motion.div>
     </header>
   )

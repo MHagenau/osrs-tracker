@@ -1,15 +1,15 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Community from '../components/Community';
 import CurrentTop from '../components/CurrentTop';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
-import Records from '../components/Records';
-import styles from '../styles/Home.module.css'
+import Highscores from '../components/Highscores';
+import Features from '../components/Features';
 
 const Home: NextPage = () => {
   return (
-    <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-proximity overflow-scroll
-    z-0'>
+    <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-proximity overflow-scroll z-0'>
       <Head>
         <title>Oldschool RuneScape Tracker</title>
       </Head>
@@ -24,16 +24,18 @@ const Home: NextPage = () => {
         <CurrentTop />
       </section>
 
-      {/* Experience */}
-      <section id="records" className='snap-center'>
-        <Records />
+      <section id="features" className='snap-center'>
+        <Features />
       </section>
 
-      {/* Skills */}
+      <section id="virtual-highscore" className='snap-start'>
+        <Highscores />
+      </section>
 
-      {/* Projects */}
+      <section id="community" className="snap-start">
+        <Community />
+      </section>
 
-      {/* Contact Me */}
     </div>
   );
 };

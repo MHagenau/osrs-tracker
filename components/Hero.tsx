@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import React from 'react'
 import Typewriter from 'typewriter-effect';
 import BackgroundCircles from './BackgroundCircles';
@@ -29,20 +28,6 @@ const Hero = () => {
             />
           </span>
         </h1>
-        <div className='pt-5 '>
-          <Link href="#current-top">
-            <button className='heroButton'>Current Top</button>
-          </Link>
-          <Link href="#records">
-            <button className='heroButton'>Records</button>
-          </Link>
-          <Link href="#virtual-highscores">
-            <button className='heroButton'>Virtual Highscores</button>
-          </Link>
-          <Link href="#community">
-            <button className='heroButton'>Community</button>
-          </Link>
-        </div>
       </div>
     </div>
   )
