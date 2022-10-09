@@ -2,6 +2,9 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/Header';
 import SkillTable from '../components/SkillTable';
+import statsJson from '../json_response.json';
+
+
 
 const PlayerPage: NextPage = () => {
   return (

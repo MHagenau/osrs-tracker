@@ -2,7 +2,7 @@ import React from 'react'
 
 type Props = {}
 
-function SkillTable({}: Props) {
+function SkillTable({ }: Props) {
   return (
     <div className=''>
         <table className='text-sm text-left text-gray-400'>
