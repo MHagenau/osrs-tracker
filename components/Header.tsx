@@ -26,21 +26,19 @@ export default function Header({}: Props) {
             }}
             className='flex flex-row items-center'>
 
-            <Link href="/#current-top">
-                <button className='heroButton'>Current Top</button>
-            </Link>
-
-            <Link href="/#features">
-                <button className='heroButton'>Features</button>
-            </Link>
-
-            <Link href="/userpage">
-                <button className='heroButton'>UserPage</button>
-            </Link>
-
-            <Link href="/#community">
-                <button className='heroButton'>Community</button>
-            </Link>
+        <div className='w-[300px]'>
+            <form>   
+                <div className="relative">
+                    <input className="block p-2.5 pl-4 w-full text-xs text-gray-500 bg-[#333333] rounded-lg
+                                    focus:ring-[#F7AB0A]/80 focus:border-[#F7AB0A]/80"
+                            placeholder="Lookup player ..."/>
+                    <button formAction="/userpage" className="text-white absolute right-1.5 bottom-1.5 bg-[#F7AB0A]/20 hover:bg-[#F7AB0A]/50 
+                            focus:ring-2 focus:ring-[#F7AB0A]/80 focus:outline-none font-medium rounded-lg text-xs px-4 py-1">
+                    Lookup
+                    </button>
+                </div>
+            </form>
+        </div>
         </motion.div>
         
         <motion.div
@@ -61,21 +59,19 @@ export default function Header({}: Props) {
                 once: true
             }}
             className='flex flex-row items-center text-gray-300'>
+            
+            <Link href="/#hero">
+                <button className='heroButton'>Home</button>
+            </Link>
+            
+            <Link href="/#about">
+                <button className='heroButton'>About</button>
+            </Link>
 
-            <form> 
-                <div className="relative">
-                    <input id="search" placeholder="Username" required
-                           className='bg-[#333333] form-control block w-full px-3 py-1.5 text-base
-                                     font-normal text-gray-700 bg-clip-padding border border-solid
-                                     border-gray-700 rounded transition ease-in-out m-0 focus:text-gray-700
-                                     focus:border-[#F7AB0A] focus:border-opacity-40 focus:outline-none'/>
-                    
-                    <button type="submit" className='absolute right-3 top-1.5 transition-all
-                                        hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40'>
-                        Lookup
-                    </button>
-                </div>
-            </form>
+            <Link href="/#features">
+                <button className='heroButton'>Features</button>
+            </Link>
+
         </motion.div>
     </header>
   )

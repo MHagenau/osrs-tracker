@@ -29,6 +29,19 @@ const Hero = () => {
           </span>
         </h1>
       </div>
+      <div className='w-[500px]'>
+        <form>   
+          <div className="relative">
+            <input className="block p-4 pl-4 w-full text-sm text-gray-500
+                       bg-[#333333] rounded-lg border border-[#F7AB0A]/20 focus:ring-[#F7AB0A]/80 focus:border-[#F7AB0A]/80"
+                       placeholder="Lookup player or start tracking new username ..."/>
+            <button formAction="/userpage" className="text-white absolute right-2.5 bottom-2.5 bg-[#F7AB0A]/20 hover:bg-[#F7AB0A]/50 
+                    focus:ring-2 focus:ring-[#F7AB0A]/80 focus:outline-none font-medium rounded-lg text-sm px-6 py-2">
+              Lookup
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   )
 }
