@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: '/osrs-tracker',
+  assetPrefix: '/osrs-tracker/',
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -7,7 +9,4 @@ const nextConfig = {
   },
 }
 
-module.exports = {
-  basePath: '/osrs-tracker',
-  assetPrefix: '/osrs-tracker/', // assetPrefix requires the trailing slash
-}
+module.exports = nextConfig
