@@ -37,7 +37,7 @@ function FeatureCards({ imageURL, featureTitle, featureDescription, avatars }: P
             <div className='flex space-x-2 my-2'>
 
                 {avatars.map((avatar, i) => (
-                    <img className='h-11 w-11 rounded-full object-scale-down object-bottom' 
+                    <img key={i} className='h-11 w-11 rounded-full object-scale-down object-bottom' 
                     src={avatar} alt=""/>
                 ))}
 
