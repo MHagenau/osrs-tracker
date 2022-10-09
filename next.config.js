@@ -7,4 +7,7 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+module.exports = {
+  basePath: '/osrs-tracker',
+  assetPrefix: '/osrs-tracker/', // assetPrefix requires the trailing slash
+}

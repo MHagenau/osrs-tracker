@@ -1,10 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/Header';
-
 import SkillTable from '../components/SkillTable';
 
-const Home: NextPage = () => {
+const PlayerPage: NextPage = () => {
   return (
     <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-proximity overflow-scroll z-0'>
       <Head>
@@ -23,4 +22,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home
+export default PlayerPage
