@@ -18,8 +18,8 @@ function Community({}: Props) {
             <div className='w-screen flex-shrink-0 snap-center flex flex-col space-y-5
                             items-center justify-center p-20 md:p-44 h-screen'>
               <img className='xl:w-[500px] xl:h-[500px] object-scale-down object-center'
-                src="https://oldschool.runescape.wiki/images/Wise_Old_Man.png?b2e69"
-                alt=""
+                src='https://oldschool.runescape.wiki/images/Wise_Old_Man.png?b2e69'
+                alt=''
               />
 
               <div className='space-y-10 px-0 md:px-10 max-w-6xl'>
@@ -27,11 +27,11 @@ function Community({}: Props) {
                   <span className='underline decoration-[#F7AB0A]/50'>Project {i+1} of {projects.length}:</span> Dette er mit projekt
                 </h4>
                 <p> 
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
                   et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
                   aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
                   dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-                  deserunt mollit anim id est laborum."
+                  deserunt mollit anim id est laborum.
                 </p>
               </div>
             </div>

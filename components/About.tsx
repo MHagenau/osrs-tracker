@@ -26,7 +26,7 @@ function About({}: Props) {
         whileInView={{ 
             opacity: 1, x:0
         }}
-        src="https://oldschool.runescape.wiki/images/Infernal_cape_equipped.gif?3f996"
+        src='https://oldschool.runescape.wiki/images/Infernal_cape_equipped.gif?3f996'
         className='-mb-20 md:mb-0 flex-shrink-0 w-60 h-60 rounded-full object-scale-down
                    md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]'/>
 
