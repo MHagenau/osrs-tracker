@@ -1,8 +1,24 @@
+import { statSync } from 'fs'
 import React from 'react'
 
-type Props = {}
+type Props = {
+    stats: any
+}
 
-function SkillTable({ }: Props) {
+
+function SkillTable({ stats }: Props) {
+  
+    const playerSkills: any[] = []
+
+    for (let skill in stats.skills) {
+        playerSkills.push([
+            skill, 
+            stats.skills[skill].rank, 
+            stats.skills[skill].level, 
+            stats.skills[skill].xp
+        ])
+    }
+
   return (
     <div className=''>
         <table className='text-sm text-left text-gray-400'>
@@ -23,63 +39,27 @@ function SkillTable({ }: Props) {
                 </tr>
             </thead>
             <tbody>
-                <tr className='bg-[#383838] border-b border-gray-500'>
-                    <th scope="row" className='py-4 px-6 font-medium text-white '>
-                        <div>
-                            <img className="w-4 h-4 inline object-scale-down" 
-                                src="https://oldschool.runescape.wiki/images/Attack_icon_%28detail%29.png?a4903" 
-                                alt="Attack" />
-                            <p className='inline pl-2'>Attack</p>
-                        </div>
-                    </th>
-                    <td className='py-4 px-6'>
-                        28016
-                    </td>
-                    <td className='py-4 px-6'>
-                        99
-                    </td>
-                    <td className='py-4 px-6'>
-                        26083252
-                    </td>
-                </tr>
-                <tr className='bg-[#383838] border-b border-gray-500'>
-                    <th scope="row" className='py-4 px-6 font-medium text-white'>
-                        <div>
-                            <img className="w-4 h-4 inline object-scale-down" 
-                                src="https://oldschool.runescape.wiki/images/Strength_icon_%28detail%29.png?a4903" 
-                                alt="Attack" />
-                            <p className='inline pl-2'>Strength</p>
-                        </div>
-                    </th>
-                    <td className='py-4 px-6'>
-                        56080
-                    </td>
-                    <td className='py-4 px-6'>
-                        99
-                    </td>
-                    <td className='py-4 px-6'>
-                        17380758
-                    </td>
-                </tr>
-                <tr className='bg-[#383838] border-b border-gray-500'>
-                    <th scope="row" className='py-4 px-6 font-medium text-white'>
-                        <div>
-                            <img className="w-4 h-4 inline object-scale-down" 
-                                src="https://oldschool.runescape.wiki/images/Defence_icon_%28detail%29.png?a4903" 
-                                alt="Attack" />
-                            <p className='inline pl-2'>Defence</p>
-                        </div>
-                    </th>
-                    <td className='py-4 px-6'>
-                        37523
-                    </td>
-                    <td className='py-4 px-6'>
-                        99
-                    </td>
-                    <td className='py-4 px-6'>
-                        30697186
-                    </td>
-                </tr>
+                {playerSkills.map((value, i) => (
+                    <tr key={i} className='bg-[#383838] border-b border-gray-500'>
+                        <th key={i} scope="row" className='py-2 px-6 font-medium text-white '>
+                            <div>
+                                <img className="w-4 h-4 inline object-scale-down" 
+                                    src='https://oldschool.runescape.wiki/images/Attack_icon_%28detail%29.png?a4903'
+                                    alt="${playerSkills[i][0]}" />
+                                <p className='inline pl-2'>{playerSkills[i][0].charAt(0).toUpperCase() + playerSkills[i][0].slice(1)}</p>
+                            </div>
+                        </th>
+                        <td key={i} className='py-2 px-6'>
+                            {playerSkills[i][1]}
+                        </td>
+                        <td key={i} className='py-2 px-6'>
+                            {playerSkills[i][2]}
+                        </td>
+                        <td key={i} className='py-2 px-6'>
+                            {playerSkills[i][3]}
+                        </td>
+                    </tr>
+                ))}
             </tbody>
         </table>
     </div>
