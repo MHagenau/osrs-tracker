@@ -11,7 +11,10 @@ function SkillTable({ stats }: Props) {
     const playerSkills: any[] = []
 
     for (let skill in stats.skills) {
+        var url = `https://oldschool.runescape.wiki/images/${skill.charAt(0).toUpperCase() 
+                   + skill.slice(1)}_icon_%28detail%29.png?a4903`
         playerSkills.push([
+            url,
             skill, 
             stats.skills[skill].rank, 
             stats.skills[skill].level, 
@@ -40,23 +43,24 @@ function SkillTable({ stats }: Props) {
             </thead>
             <tbody>
                 {playerSkills.map((value, i) => (
+                    
                     <tr key={i} className='bg-[#383838] border-b border-gray-500'>
                         <th key={i} scope="row" className='py-2 px-6 font-medium text-white '>
                             <div>
                                 <img className="w-4 h-4 inline object-scale-down" 
-                                    src='https://oldschool.runescape.wiki/images/Attack_icon_%28detail%29.png?a4903'
-                                    alt="${playerSkills[i][0]}" />
-                                <p className='inline pl-2'>{playerSkills[i][0].charAt(0).toUpperCase() + playerSkills[i][0].slice(1)}</p>
+                                    src={playerSkills[i][0]}
+                                    alt="" />
+                                <p className='inline pl-2'>{playerSkills[i][1].charAt(0).toUpperCase() + playerSkills[i][1].slice(1)}</p>
                             </div>
                         </th>
-                        <td key={i} className='py-2 px-6'>
-                            {playerSkills[i][1]}
-                        </td>
                         <td key={i} className='py-2 px-6'>
                             {playerSkills[i][2]}
                         </td>
                         <td key={i} className='py-2 px-6'>
                             {playerSkills[i][3]}
+                        </td>
+                        <td key={i} className='py-2 px-6'>
+                            {playerSkills[i][4]}
                         </td>
                     </tr>
                 ))}
