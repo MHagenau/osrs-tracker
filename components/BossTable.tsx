@@ -39,7 +39,7 @@ function BossTable({ stats }: Props) {
                     <tr key={i} className='bg-[#383838] border-b border-gray-500'>
                         <th key={i} scope="row" className='py-2 px-6 font-medium text-white '>
                             <div>
-                                <img className="w-5 h-5 inline object-scale-down" 
+                                <img className="w-4 h-4 inline object-scale-down" 
                                     src={playerBoss[i][0]}
                                     alt="" />
                                 <p className='inline pl-2'>{playerBoss[i][1].charAt(0).toUpperCase() + playerBoss[i][1].slice(1)}</p>
