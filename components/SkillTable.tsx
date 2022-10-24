@@ -11,10 +11,9 @@ function SkillTable({ stats }: Props) {
     const playerSkills: any[] = []
 
     for (let skill in stats.skills) {
-        var url = `https://oldschool.runescape.wiki/images/${skill.charAt(0).toUpperCase() 
-                   + skill.slice(1)}_icon_%28detail%29.png?a4903`
+        var imgPath = `/skill_icons/${skill}.png`
         playerSkills.push([
-            url,
+            imgPath,
             skill, 
             stats.skills[skill].rank, 
             stats.skills[skill].level, 

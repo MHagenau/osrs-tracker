@@ -5,6 +5,7 @@ import SkillTable from '../components/SkillTable';
 import BossTable from '../components/BossTable';
 import statsJson from '../json_response.json' assert {type: "json"};
 import { useState } from 'react';
+import MinigameTable from '../components/MinigameTable';
 
 const PlayerPage: NextPage = () => {
 
@@ -13,8 +14,10 @@ const PlayerPage: NextPage = () => {
 
     if (drpdownInput === 'Skills')
       return <SkillTable stats={statsJson} />
-    else
+    else if (drpdownInput === 'Bosses')
       return <BossTable stats={statsJson} />
+    else
+      return <MinigameTable stats={statsJson} />
   }
 
 
@@ -31,6 +34,7 @@ const PlayerPage: NextPage = () => {
                 value={selects} onChange={e => setSelects(e.target.value)}>
           <option>Skills</option>
           <option>Bosses</option>
+          <option>Minigames</option>
         </select>
       </div>
 

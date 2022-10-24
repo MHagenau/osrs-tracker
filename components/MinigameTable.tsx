@@ -1,3 +1,4 @@
+import { statSync } from 'fs'
 import React from 'react'
 
 type Props = {
@@ -5,16 +6,16 @@ type Props = {
 }
 
 
-function BossTable({ stats }: Props) {
+function MinigameTable({ stats }: Props) {
   
-    const playerBoss: any[] = []
-    for (let boss in stats.bosses) {
-        var imgPath = `/boss_icons/${boss}.png`
-        playerBoss.push([
+    const playerMinigame: any[] = []
+    for (let minigame in stats.minigames) {
+        var imgPath = `/minigame_icons/${minigame}.png`
+        playerMinigame.push([
             imgPath,
-            boss, 
-            stats.bosses[boss].score,
-            stats.bosses[boss].rank
+            minigame, 
+            stats.minigames[minigame].score,
+            stats.minigames[minigame].rank
         ])
     }
 
@@ -24,7 +25,7 @@ function BossTable({ stats }: Props) {
             <thead className='text-xs uppercase dark:bg-[#1f1f1f] tracking-[2px]'>
                 <tr>
                     <th scope='col' className='py-3 px-6'>
-                        Boss
+                        minigame
                     </th>
                     <th scope='col' className='py-3 px-6'>
                         Kills
@@ -35,21 +36,21 @@ function BossTable({ stats }: Props) {
                 </tr>
             </thead>
             <tbody>
-                {playerBoss.map((value, i) => (
+                {playerMinigame.map((value, i) => (
                     <tr key={i} className='bg-[#383838] border-b border-gray-500'>
                         <th key={i} scope="row" className='py-2 px-6 font-medium text-white '>
                             <div>
                                 <img className="w-5 h-5 inline object-scale-down" 
-                                    src={playerBoss[i][0]}
+                                    src={playerMinigame[i][0]}
                                     alt="" />
-                                <p className='inline pl-2'>{playerBoss[i][1].charAt(0).toUpperCase() + playerBoss[i][1].slice(1)}</p>
+                                <p className='inline pl-2'>{playerMinigame[i][1].charAt(0).toUpperCase() + playerMinigame[i][1].slice(1)}</p>
                             </div>
                         </th>
                         <td key={i} className='py-2 px-6'>
-                            {playerBoss[i][2]}
+                            {playerMinigame[i][2]}
                         </td>
                         <td key={i} className='py-2 px-6'>
-                            {playerBoss[i][3]}
+                            {playerMinigame[i][3]}
                         </td>
                     </tr>
                 ))}
@@ -59,4 +60,4 @@ function BossTable({ stats }: Props) {
   )
 }
 
-export default BossTable
+export default MinigameTable
