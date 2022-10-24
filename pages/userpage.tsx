@@ -2,24 +2,46 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/Header';
 import SkillTable from '../components/SkillTable';
-import statsJson from '../json_response.json';
-
-
+import BossTable from '../components/BossTable';
+import statsJson from '../json_response.json' assert {type: "json"};
+import { useState } from 'react';
+import MinigameTable from '../components/MinigameTable';
 
 const PlayerPage: NextPage = () => {
+
+  const [selects, setSelects] = useState("Skills")
+  function playerTable(drpdownInput: string){
+
+    if (drpdownInput === 'Skills')
+      return <SkillTable stats={statsJson} />
+    else if (drpdownInput === 'Bosses')
+      return <BossTable stats={statsJson} />
+    else
+      return <MinigameTable stats={statsJson} />
+  }
+
+
   return (
-    <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-proximity overflow-scroll z-0'>
+    <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-proximity overflow-scroll z-0
+                    scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80'>
       <Head>
         <title>Oldschool RuneScape Tracker</title>
       </Head>
 
       <Header />
 
-      <div className='h-screen flex items-center justify-center'>
-        <SkillTable />
+      <div className='flex pt-10 pb-10 justify-center items-center'>
+        <select className='block w-1/5 p-2 pl-2 pr-2 text-s text-gray-500 bg-[#333333] rounded-lg'
+                value={selects} onChange={e => setSelects(e.target.value)}>
+          <option>Skills</option>
+          <option>Bosses</option>
+          <option>Minigames</option>
+        </select>
       </div>
 
-
+      <section>
+        {playerTable(selects)}
+      </section>
 
     </div>
   );
