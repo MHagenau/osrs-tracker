@@ -2,7 +2,9 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/Header';
 import SkillTable from '../components/SkillTable';
+import BossTable from '../components/BossTable';
 import statsJson from '../json_response.json' assert {type: "json"};
+import Dropdown from '../components/Dropdown';
 
 const PlayerPage: NextPage = () => {
   return (
@@ -13,10 +15,15 @@ const PlayerPage: NextPage = () => {
 
       <Header />
 
+      <Dropdown />
+
       <div className='h-screen flex items-center justify-center'>
         <SkillTable stats={statsJson}/>
       </div>
 
+      <div className='h-screen flex items-center justify-center'>
+        <BossTable stats={statsJson}/>
+      </div>
 
 
     </div>
