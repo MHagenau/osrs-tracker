@@ -11,7 +11,7 @@ function SkillTable({ stats }: Props) {
     const playerSkills: any[] = []
 
     for (let skill in stats.skills) {
-        var imgPath = `/skill_icons/${skill}.png`
+        var imgPath = `./skill_icons/${skill}.png`
         playerSkills.push([
             imgPath,
             skill, 

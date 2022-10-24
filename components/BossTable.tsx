@@ -9,7 +9,7 @@ function BossTable({ stats }: Props) {
   
     const playerBoss: any[] = []
     for (let boss in stats.bosses) {
-        var imgPath = `/boss_icons/${boss}.png`
+        var imgPath = `./boss_icons/${boss}.png`
         playerBoss.push([
             imgPath,
             boss, 

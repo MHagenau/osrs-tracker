@@ -10,7 +10,7 @@ function MinigameTable({ stats }: Props) {
   
     const playerMinigame: any[] = []
     for (let minigame in stats.minigames) {
-        var imgPath = `/minigame_icons/${minigame}.png`
+        var imgPath = `./minigame_icons/${minigame}.png`
         playerMinigame.push([
             imgPath,
             minigame, 
