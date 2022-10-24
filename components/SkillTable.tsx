@@ -23,7 +23,7 @@ function SkillTable({ stats }: Props) {
 
   return (
     <div className='h-screen flex flex-col items-center text-center'>
-        <table className=' text-sm text-left text-gray-400'>
+        <table className='w-1/3 text-sm text-left text-gray-400'>
             <thead className='text-xs uppercase dark:bg-[#1f1f1f] tracking-[2px]'>
                 <tr>
                     <th scope='col' className='py-3 px-6'>
