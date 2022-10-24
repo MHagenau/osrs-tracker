@@ -21,7 +21,7 @@ function BossTable({ stats }: Props) {
     }
 
   return (
-    <div className=''>
+    <div className='h-screen flex flex-col items-center text-center'>
         <table className='text-sm text-left text-gray-400'>
             <thead className='text-xs uppercase dark:bg-[#1f1f1f] tracking-[2px]'>
                 <tr>
