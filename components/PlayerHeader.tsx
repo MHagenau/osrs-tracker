@@ -5,7 +5,7 @@ type Props = {}
 function PlayerHeader({}: Props) {
   return (
     <div>
-        <section className="w-1/2 mx-auto bg-[#1f1f1f] rounded-2xl px-8 py-4 shadow-lg mt-10">
+        <section className="w-1/2 mx-auto bg-[#1f1f1f] rounded-2xl px-8 py-4 shadow-lg mt-8">
             <div className="flex items-center justify-between">
                 <span className="text-gray-400 text-xs">Last updated: 2d ago</span>
                 <span className="text-[#F7AB0A]/80">
@@ -21,7 +21,7 @@ function PlayerHeader({}: Props) {
             <div className="mt-2">
                 <h2 className="text-white font-bold text-3xl tracking-wide">Hagenau</h2>
             </div>
-            <div className="flex items-center justify-between mt-6">
+            <div className="flex items-center justify-between mt-2">
                 <span className="text-gray-400 text-sm">Progress towards max</span>
             </div>
             <div className="h-1 w-full bg-black mt-1 rounded-full">

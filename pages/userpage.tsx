@@ -7,6 +7,7 @@ import statsJson from '../json_response.json' assert {type: "json"};
 import { useState } from 'react';
 import MinigameTable from '../components/MinigameTable';
 import PlayerHeader from '../components/PlayerHeader';
+import InfoBoxes from '../components/InfoBoxes';
 
 const PlayerPage: NextPage = () => {
 
@@ -32,6 +33,8 @@ const PlayerPage: NextPage = () => {
       <Header />
 
       <PlayerHeader />
+
+      <InfoBoxes stats={statsJson}/>
 
       <div className='flex pt-5 pb-5 justify-center items-center'>
         <select className='block w-1/5 p-2 pl-2 pr-2 text-s text-gray-400 bg-[#1f1f1f] rounded-lg'
