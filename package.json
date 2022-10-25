@@ -16,6 +16,7 @@
     "react-dom": "^18.2.0",
     "react-simple-typewriter": "^4.0.3",
     "react-social-icons": "^5.15.0",
+    "tailwindcss-percentage-width": "^1.0.3",
     "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {

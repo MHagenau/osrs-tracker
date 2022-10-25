@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const percentageWidth = require('tailwindcss-percentage-width');
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -8,6 +9,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    require('tailwind-scrollbar'), 
+    require('tailwind-scrollbar'),
+    percentageWidth,
   ],
 }
