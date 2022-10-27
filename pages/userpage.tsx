@@ -8,6 +8,7 @@ import { useState } from 'react';
 import MinigameTable from '../components/MinigameTable';
 import PlayerHeader from '../components/PlayerHeader';
 import InfoBoxes from '../components/InfoBoxes';
+import { motion } from "framer-motion"
 
 const PlayerPage: NextPage = () => {
 
@@ -36,19 +37,34 @@ const PlayerPage: NextPage = () => {
 
       <InfoBoxes stats={statsJson}/>
 
-      <div className='flex pt-5 pb-5 justify-center items-center'>
-        <select className='block w-1/5 p-2 pl-2 pr-2 text-s text-gray-400 bg-[#1f1f1f] rounded-lg'
-                value={selects} onChange={e => setSelects(e.target.value)}>
-          <option>Skills</option>
-          <option>Bosses</option>
-          <option>Minigames</option>
-        </select>
-      </div>
+      <motion.div
+        initial={{
+            y: 100,
+            opacity: 0,
+        }}
+        transition={{ 
+            duration: 1.2 
+        }}
+        whileInView={{ 
+            opacity: 1, y: 0
+        }}
+        viewport={{ 
+            once: true
+        }}>
+          <div className='flex pt-5 pb-5 justify-center items-center'>
+            <select className='block w-1/5 p-2 pl-2 pr-2 text-s text-gray-400 bg-[#1f1f1f] rounded-lg'
+                    value={selects} onChange={e => setSelects(e.target.value)}>
+              <option>Skills</option>
+              <option>Bosses</option>
+              <option>Minigames</option>
+            </select>
+          </div>
 
-      <section>
-        {playerTable(selects)}
-      </section>
+          <section>
+            {playerTable(selects)}
+          </section>
 
+      </motion.div>
     </div>
   );
 };

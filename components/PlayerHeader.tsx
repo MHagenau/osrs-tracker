@@ -1,11 +1,26 @@
 import React from 'react'
+import { motion } from "framer-motion"
 
 type Props = {}
 
 function PlayerHeader({}: Props) {
     return (
         <div>
-            <section className="w-1/2 mx-auto bg-[#1f1f1f] rounded-2xl px-8 py-4 shadow-lg mt-8">
+            <motion.section
+            initial={{
+                y: -100,
+                opacity: 0,
+            }}
+            transition={{ 
+                duration: 1.2 
+            }}
+            whileInView={{ 
+                opacity: 1, y: 0
+            }}
+            viewport={{ 
+                once: true
+            }} 
+            className="w-1/2 mx-auto bg-[#1f1f1f] rounded-2xl px-8 py-4 shadow-lg mt-8">
                 <div className="flex items-center justify-between">
                     <span className="text-gray-400 text-xs">Last updated: 2d ago</span>
                     <span className="text-[#F7AB0A]/80">
@@ -23,11 +38,12 @@ function PlayerHeader({}: Props) {
                 </div>
                 <div className="flex items-center justify-between mt-2">
                     <span className="text-gray-400 text-sm">Progress towards max</span>
+                    <span className="text-gray-400 text-sm">80 %</span>
                 </div>
                 <div className="h-1 w-full bg-black mt-1 rounded-full">
                     <div className="h-1 rounded-full w-80%  bg-[#F7AB0A]/80"></div>
                 </div>
-            </section>
+            </motion.section>
         </div>
     )
 }

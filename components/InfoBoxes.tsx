@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from "framer-motion"
 
 type Props = {
     stats: any
@@ -24,7 +25,21 @@ function InfoBoxes({ stats }: Props) {
 
 
     return (
-        <div className='flex items-center justify-center mt-5'>
+        <motion.div
+        initial={{
+            y: -100,
+            opacity: 0,
+        }}
+        transition={{ 
+            duration: 1.2 
+        }}
+        whileInView={{ 
+            opacity: 1, y: 0
+        }}
+        viewport={{ 
+            once: true
+        }}
+        className='flex items-center justify-center mt-5'>
             <div className='w-1/2 grid grid-cols-5 gap-3'>
                 <div className="w-full bg-[#1f1f1f] rounded-2xl px-4 shadow-lg text-xs">
                     <div className='grid grid-rows-2 grid-flow-col'>
@@ -77,7 +92,7 @@ function InfoBoxes({ stats }: Props) {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
