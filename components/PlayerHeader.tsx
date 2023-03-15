@@ -1,9 +1,11 @@
 import React from 'react'
 import { motion } from "framer-motion"
 
-type Props = {}
+type Props = {
+    displayName: any
+}
 
-function PlayerHeader({}: Props) {
+function PlayerHeader({ displayName }: Props) {
     return (
         <div>
             <motion.section
@@ -34,7 +36,7 @@ function PlayerHeader({}: Props) {
                     </span>
                 </div>
                 <div className="mt-2">
-                    <h2 className="text-white font-bold text-3xl tracking-wide">Hagenau</h2>
+                    <h2 className="text-white font-bold text-3xl tracking-wide">{displayName}</h2>
                 </div>
                 <div className="flex items-center justify-between mt-2">
                     <span className="text-gray-400 text-sm">Progress towards max</span>

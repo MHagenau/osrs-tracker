@@ -76,17 +76,19 @@ const Hero = () => {
                        name="username"
                        onChange={handleChange}
                        value={username}/>
-            <Link href="userpage">
+            <Link
+              href={{
+                pathname: '/userpage',
+                query: { user: username },
+              }}>
               <button className="text-white absolute right-2.5 bottom-2.5 bg-[#F7AB0A]/20 hover:bg-[#F7AB0A]/50 
                       focus:ring-2 focus:ring-[#F7AB0A]/80 focus:outline-none font-medium rounded-lg text-sm px-6 py-2"
-                      type='button' onClick={handleClick}>
+                      type='button'>
                 Lookup
               </button>
             </Link>
           </div>
         </form>
-        {isLoading && <h2 className='pb-3'>Henter data ...</h2>}
-        {err && <h2>{err}</h2>}
       </div>
     </div>
   )

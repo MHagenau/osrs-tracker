@@ -9,8 +9,41 @@ import MinigameTable from '../components/MinigameTable';
 import PlayerHeader from '../components/PlayerHeader';
 import InfoBoxes from '../components/InfoBoxes';
 import { motion } from "framer-motion"
+import { useRouter } from 'next/router'
+
 
 const PlayerPage: NextPage = () => {
+  const router = useRouter()
+  const username = "test"
+  const [data, setData] = useState({users: []});
+  const [isLoading, setIsLoading] = useState(false);
+  const [err, setErr] = useState('');
+
+  const handleClick = async () => {
+    setIsLoading(true);
+    setErr('')
+    try {
+      const url = `https://api.wiseoldman.net/v2/players/${router.query.user}`
+      console.log(url)
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Error! status: ${response.status}`);
+      }
+      const result = await response.json();
+      setData(result);
+      console.log(data)
+    } catch (err) {
+        if (err instanceof Error) {
+          setErr(err.message);
+        }
+        else {
+          console.log('Unexpected error', err);
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
 
   const [selectsStatType, setSelectsStatType] = useState("Skills")
   const [selectsType, setSelectsType] = useState("Overview")
@@ -34,7 +67,7 @@ const PlayerPage: NextPage = () => {
 
       <Header />
 
-      <PlayerHeader />
+      <PlayerHeader displayName={router.query.user}/>
 
       <InfoBoxes stats={statsJson}/>
 
