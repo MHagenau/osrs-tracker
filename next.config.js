@@ -2,7 +2,7 @@
 const nextConfig = {
   /* basePath: '/osrs-tracker', */
   /* assetPrefix: '/osrs-tracker/', */
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
   images: {
     unoptimized: true,

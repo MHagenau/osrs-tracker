@@ -3,9 +3,17 @@ import { motion } from "framer-motion"
 
 type Props = {
     stats: any
+    combatLvl: number
+    totalExp: number
+    totalRank: number
+    ehp: number
+    ehpRank: number
+    ehb: number
+    ehbRank: number
+    ttm: number
 }
 
-function InfoBoxes({ stats }: Props) {
+function InfoBoxes({ stats, combatLvl, totalExp, totalRank, ehp, ehpRank, ehb, ehbRank, ttm }: Props) {
 
     function calc_combatlvl(stats: any){
         const baseCb = 1/4 * (stats.defence.level + stats.hitpoints.level 
@@ -48,7 +56,7 @@ function InfoBoxes({ stats }: Props) {
                             alt=''
                         />
                         <p className='text-gray-300 mt-4'>Combat lvl:</p> 
-                        <p className='text-gray-500'>{calc_combatlvl(stats.skills)}</p>
+                        <p className='text-gray-500'>{combatLvl}</p>
                     </div>
                 </div>
                 <div className="w-full bg-[#1f1f1f] rounded-2xl px-4 shadow-lg text-xs">
@@ -57,8 +65,8 @@ function InfoBoxes({ stats }: Props) {
                             src='./various_icons/overall.png'
                             alt=''
                         />
-                        <p className='text-gray-300 mt-4'>{total_xp_box(stats.skills.overall)}</p>
-                        <p className='text-gray-500'>Rank: {stats.skills.overall.rank}</p>
+                        <p className='text-gray-300 mt-4'>{(totalExp / 1000000).toFixed(2).toString()} m</p>
+                        <p className='text-gray-500'>Rank: {totalRank}</p>
                     </div>
                 </div>
                 <div className="w-full bg-[#1f1f1f] rounded-2xl px-4 shadow-lg text-xs"> 
@@ -67,8 +75,8 @@ function InfoBoxes({ stats }: Props) {
                             src='./various_icons/ehp.png'
                             alt=''
                         />
-                        <p className='text-gray-300 mt-4'>1289.7 EHP</p>
-                        <p className='text-gray-500'>Rank: 9458</p>
+                        <p className='text-gray-300 mt-4'>{ehp.toFixed(2)} EHP</p>
+                        <p className='text-gray-500'>Rank: {ehpRank}</p>
                     </div>
                 </div>
                 <div className="w-full bg-[#1f1f1f] rounded-2xl px-4 shadow-lg text-xs"> 
@@ -77,8 +85,8 @@ function InfoBoxes({ stats }: Props) {
                             src='./various_icons/ehb.png'
                             alt=''
                         />
-                        <p className='text-gray-300 mt-4'>548.7 EHB</p>
-                        <p className='text-gray-500'>Rank: 10948</p>
+                        <p className='text-gray-300 mt-4'>{ehb.toFixed(2)} EHB</p>
+                        <p className='text-gray-500'>Rank: {ehbRank}</p>
                     </div>
                 </div>
                 <div className="w-full bg-[#1f1f1f] rounded-2xl px-4 shadow-lg text-xs"> 
@@ -88,7 +96,7 @@ function InfoBoxes({ stats }: Props) {
                             alt=''
                         />
                         <p className='text-gray-300 mt-4'>Time to max</p>
-                        <p className='text-gray-500'>0 hours</p>
+                        <p className='text-gray-500'>{ttm} hours</p>
                     </div>
                 </div>
             </div>

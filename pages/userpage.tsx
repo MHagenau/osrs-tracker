@@ -2,10 +2,11 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/Header';
 import statsJson from '../json_response.json' assert {type: "json"};
+import test_data from '../json_response_wom.json' assert {type: "json"};
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
 import React from 'react';
-import UserpageContent from '../components/userpageContent';
+import UserpageContent from '../components/UserpageContent';
 
 
 const PlayerPage: NextPage = () => {
@@ -13,10 +14,10 @@ const PlayerPage: NextPage = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [err, setErr] = useState('');
+  const username = router.query.user;
 
   useEffect(() => {
-    const username = router.query.user
-    fetchUser(username)
+    fetchUser(username);
   }, []);
 
   const fetchUser = async ( username: string | string[] | undefined ) => {
@@ -31,7 +32,6 @@ const PlayerPage: NextPage = () => {
       }
       const result = await response.json();
       setData(result);
-      console.log(data)
     } catch (err) {
         if (err instanceof Error) {
           setErr(err.message);
@@ -41,9 +41,10 @@ const PlayerPage: NextPage = () => {
       }
     } finally {
       setIsLoading(false);
+      console.log(data)
     }
   };
-
+  console.log(data)
   return (
   
     <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-proximity overflow-scroll z-0
@@ -56,7 +57,8 @@ const PlayerPage: NextPage = () => {
       <Header />
 
       <UserpageContent  statsJson={statsJson}
-                        username={router.query.user}/>
+                        username={router.query.user}
+                        playerStats={test_data}/>
 
     </div>
   );

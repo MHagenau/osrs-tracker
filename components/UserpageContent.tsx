@@ -10,27 +10,37 @@ import MinigameTable from './MinigameTable'
 type Props = {
     statsJson: any
     username: any
+    playerStats: any
 }
 
 
-function userpageContent( {statsJson, username}: Props) {
+function userpageContent( {statsJson, username, playerStats}: Props) {
     const [selectsStatType, setSelectsStatType] = useState("Skills")
     const [selectsType, setSelectsType] = useState("Overview")
 
     function playerTable(drpdownInputStatType: string, drpdownInputType: string){
         if (drpdownInputStatType === 'Skills')
-        return <SkillTable stats={statsJson} />
+        return <SkillTable stats={statsJson} test_stats={playerStats} />
         else if (drpdownInputStatType === 'Bosses')
         return <BossTable stats={statsJson} />
         else
         return <MinigameTable stats={statsJson} />
     }
-    
+
   return (
     <div>
         <PlayerHeader displayName={username}/>
 
-        <InfoBoxes stats={statsJson}/>
+        <InfoBoxes stats={statsJson}
+                   combatLvl={playerStats.combatLevel}
+                   totalExp={playerStats.exp}
+                   totalRank={playerStats.latestSnapshot.data.skills.overall.rank}
+                   ehp={playerStats.latestSnapshot.data.computed.ehp.value}
+                   ehpRank={playerStats.latestSnapshot.data.computed.ehp.rank}
+                   ehb={playerStats.latestSnapshot.data.computed.ehb.value}
+                   ehbRank={playerStats.latestSnapshot.data.computed.ehb.rank}
+                   ttm={playerStats.ttm}
+                   />
 
         <motion.div
         initial={{
