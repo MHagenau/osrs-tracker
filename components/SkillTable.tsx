@@ -47,19 +47,19 @@ function SkillTable({ stats }: Props) {
                         <th key={i} scope="row" className='py-2 px-6 font-medium text-white '>
                             <div>
                                 <img className="w-4 h-4 inline object-scale-down" 
-                                    src={playerSkills[i][0]}
+                                    src={value[0]}
                                     alt="" />
-                                <p className='inline pl-2'>{playerSkills[i][1].charAt(0).toUpperCase() + playerSkills[i][1].slice(1)}</p>
+                                <p className='inline pl-2'>{value[1].charAt(0).toUpperCase() + value[1].slice(1)}</p>
                             </div>
                         </th>
-                        <td key={i} className='py-2 px-6'>
-                            {playerSkills[i][2]}
+                        <td className='py-2 px-6'>
+                            {value[2]}
                         </td>
-                        <td key={i} className='py-2 px-6'>
-                            {playerSkills[i][3]}
+                        <td className='py-2 px-6'>
+                            {value[3]}
                         </td>
-                        <td key={i} className='py-2 px-6'>
-                            {playerSkills[i][4]}
+                        <td className='py-2 px-6'>
+                            {value[4]}
                         </td>
                     </tr>
                 ))}

@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import SkillTable from '../components/SkillTable';
 import BossTable from '../components/BossTable';
 import statsJson from '../json_response.json' assert {type: "json"};
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MinigameTable from '../components/MinigameTable';
 import PlayerHeader from '../components/PlayerHeader';
 import InfoBoxes from '../components/InfoBoxes';
@@ -14,7 +14,11 @@ import { useRouter } from 'next/router'
 
 const PlayerPage: NextPage = () => {
   const router = useRouter()
-  const username = "test"
+  
+  useEffect(() => {
+    handleClick();
+  }, []);
+
   const [data, setData] = useState({users: []});
   const [isLoading, setIsLoading] = useState(false);
   const [err, setErr] = useState('');

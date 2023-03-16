@@ -7,38 +7,10 @@ import { useState } from 'react';
 
 const Hero = () => {
   const [username, setUsername] = useState('');
-  const [data, setData] = useState({users: []});
-  const [isLoading, setIsLoading] = useState(false);
-  const [err, setErr] = useState('');
 
   const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
     setUsername(event.target.value);
   }
-
-  const handleClick = async () => {
-    setIsLoading(true);
-    setErr('')
-    try {
-      const url = `https://api.wiseoldman.net/v2/players/${username}`
-      console.log(url)
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`Error! status: ${response.status}`);
-      }
-      const result = await response.json();
-      setData(result);
-      console.log(data)
-    } catch (err) {
-        if (err instanceof Error) {
-          setErr(err.message);
-        }
-        else {
-          console.log('Unexpected error', err);
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   return (
     <div className='h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden'>
