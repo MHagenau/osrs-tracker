@@ -3,9 +3,10 @@ import { motion } from "framer-motion"
 
 type Props = {
     displayName: any
+    sinceUpdate: string
 }
 
-function PlayerHeader({ displayName }: Props) {
+function PlayerHeader({ displayName, sinceUpdate }: Props) {
     return (
         <div>
             <motion.section
@@ -24,7 +25,7 @@ function PlayerHeader({ displayName }: Props) {
             }} 
             className="w-1/2 mx-auto bg-[#1f1f1f] rounded-2xl px-8 py-4 shadow-lg mt-8">
                 <div className="flex items-center justify-between">
-                    <span className="text-gray-400 text-xs">Last updated: 2d ago</span>
+                    <span className="text-gray-400 text-xs">Last updated: {sinceUpdate} ago</span>
                     <span className="text-[#F7AB0A]/80">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" 
                             viewBox="0 0 24 24" stroke="currentColor">

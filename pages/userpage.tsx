@@ -71,8 +71,7 @@ const PlayerPage: NextPage = () => {
 
       <Header />
 
-      <UserpageContent  username={router.query.user}
-                        playerStats={data}/>
+      <UserpageContent playerStats={data}/>
 
     </div>
   );

@@ -7,14 +7,46 @@ import PlayerHeader from './PlayerHeader'
 import MinigameTable from './MinigameTable'
 
 type Props = {
-    username: any
     playerStats: any
 }
 
 
-function UserpageContent( {username, playerStats}: Props) {
+function UserpageContent( { playerStats }: Props) {
     const [selectsStatType, setSelectsStatType] = useState("Skills")
     const [selectsType, setSelectsType] = useState("Overview")
+    const lastChanged = new Date(playerStats.lastChangedAt)
+    const currTime = new Date(new Date().toISOString())
+
+    function timeDifference(current: Date, last: Date) {
+        var difference = current.getTime() - last.getTime();
+        var daysDifference = Math.floor(difference/1000/60/60/24);
+        difference -= daysDifference*1000*60*60*24
+        var hoursDifference = Math.floor(difference/1000/60/60);
+        difference -= hoursDifference*1000*60*60
+        var minutesDifference = Math.floor(difference/1000/60);
+        difference -= minutesDifference*1000*60
+        var secondsDifference = Math.floor(difference/1000);
+        
+        if (daysDifference != 0) {
+            var sinceUpdate = daysDifference + ((daysDifference > 0) ? ' day ' : ' days ') + 
+                                hoursDifference + ((daysDifference > 0) ? ' hour ' : ' hours ') + 
+                                minutesDifference + ((daysDifference > 0) ? ' minute ' : ' minutes ') + 
+                                secondsDifference + ((daysDifference > 0) ? ' second ' : ' seconds ')
+        } else if (hoursDifference != 0) {
+            var sinceUpdate = hoursDifference + ((daysDifference > 0) ? ' hour ' : ' hours ') + 
+                              minutesDifference + ((daysDifference > 0) ? ' minute ' : ' minutes ') + 
+                              secondsDifference + ((daysDifference > 0) ? ' second ' : ' seconds ')
+        } else if (minutesDifference !=0) {
+            var sinceUpdate = minutesDifference + ((daysDifference > 0) ? ' minute ' : ' minutes ') + 
+                              secondsDifference + ((daysDifference > 0) ? ' second ' : ' seconds ')
+        } else {
+            var sinceUpdate = secondsDifference + ((daysDifference > 0) ? ' second ' : ' seconds ')
+        }
+        return sinceUpdate
+    }
+
+    const sinceUpdate = timeDifference(currTime, lastChanged)
+
 
     function playerTable(drpdownInputStatType: string, drpdownInputType: string){
         if (drpdownInputStatType === 'Skills')
@@ -27,7 +59,8 @@ function UserpageContent( {username, playerStats}: Props) {
 
   return (
     <div>
-        <PlayerHeader displayName={username}/>
+        <PlayerHeader displayName={playerStats.displayName}
+                      sinceUpdate={sinceUpdate}/>
 
         <InfoBoxes combatLvl={playerStats.combatLevel}
                    totalExp={playerStats.exp}

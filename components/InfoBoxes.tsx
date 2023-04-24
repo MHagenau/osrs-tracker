@@ -78,7 +78,7 @@ function InfoBoxes({ combatLvl, totalExp, totalRank, ehp, ehpRank, ehb, ehbRank,
                             alt=''
                         />
                         <p className='text-gray-300 mt-4'>Time to max</p>
-                        <p className='text-gray-500'>{ttm} hours</p>
+                        <p className='text-gray-500'>{ttm.toFixed(2)} hours</p>
                     </div>
                 </div>
             </div>
