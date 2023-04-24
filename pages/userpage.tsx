@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/Header';
-import statsJson from '../json_response.json' assert {type: "json"};
 import test_data from '../json_response_wom.json' assert {type: "json"};
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
@@ -74,8 +73,7 @@ const PlayerPage: NextPage = () => {
 
       <Header />
 
-      <UserpageContent  statsJson={statsJson}
-                        username={router.query.user}
+      <UserpageContent  username={router.query.user}
                         playerStats={data}/>
 
     </div>

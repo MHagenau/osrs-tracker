@@ -1,4 +1,3 @@
-import router from 'next/router'
 import React, { useState } from 'react'
 import InfoBoxes from './InfoBoxes'
 import PlayerHeader from './PlayerHeader'
@@ -8,31 +7,29 @@ import BossTable from './BossTable'
 import MinigameTable from './MinigameTable'
 
 type Props = {
-    statsJson: any
     username: any
     playerStats: any
 }
 
 
-function UserpageContent( {statsJson, username, playerStats}: Props) {
+function UserpageContent( {username, playerStats}: Props) {
     const [selectsStatType, setSelectsStatType] = useState("Skills")
     const [selectsType, setSelectsType] = useState("Overview")
 
     function playerTable(drpdownInputStatType: string, drpdownInputType: string){
         if (drpdownInputStatType === 'Skills')
-        return <SkillTable stats={statsJson} test_stats={playerStats} />
+        return <SkillTable stats={playerStats} />
         else if (drpdownInputStatType === 'Bosses')
-        return <BossTable stats={statsJson} />
+        return <BossTable stats={playerStats} />
         else
-        return <MinigameTable stats={statsJson} />
+        return <MinigameTable stats={playerStats} />
     }
 
   return (
     <div>
         <PlayerHeader displayName={username}/>
 
-        <InfoBoxes stats={statsJson}
-                   combatLvl={playerStats.combatLevel}
+        <InfoBoxes combatLvl={playerStats.combatLevel}
                    totalExp={playerStats.exp}
                    totalRank={playerStats.latestSnapshot.data.skills.overall.rank}
                    ehp={playerStats.latestSnapshot.data.computed.ehp.value}

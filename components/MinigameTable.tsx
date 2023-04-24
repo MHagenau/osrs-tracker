@@ -9,13 +9,13 @@ type Props = {
 function MinigameTable({ stats }: Props) {
   
     const playerMinigame: any[] = []
-    for (let minigame in stats.minigames) {
+    for (let minigame in stats.latestSnapshot.data.activities) {
         var imgPath = `./minigame_icons/${minigame}.png`
         playerMinigame.push([
             imgPath,
             minigame, 
-            stats.minigames[minigame].score,
-            stats.minigames[minigame].rank
+            stats.latestSnapshot.data.activities[minigame].score,
+            stats.latestSnapshot.data.activities[minigame].rank
         ])
     }
 
@@ -28,7 +28,7 @@ function MinigameTable({ stats }: Props) {
                         minigame
                     </th>
                     <th scope='col' className='py-3 px-6'>
-                        Kills
+                        Score
                     </th>
                     <th scope='col' className='py-3 px-6'>
                         Rank

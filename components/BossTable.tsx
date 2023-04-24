@@ -8,13 +8,14 @@ type Props = {
 function BossTable({ stats }: Props) {
   
     const playerBoss: any[] = []
-    for (let boss in stats.bosses) {
+    for (let boss in stats.latestSnapshot.data.bosses) {
         var imgPath = `./boss_icons/${boss}.png`
         playerBoss.push([
             imgPath,
             boss, 
-            stats.bosses[boss].score,
-            stats.bosses[boss].rank
+            stats.latestSnapshot.data.bosses[boss].kills,
+            stats.latestSnapshot.data.bosses[boss].rank, 
+            stats.latestSnapshot.data.bosses[boss].ehb,
         ])
     }
 
@@ -31,6 +32,9 @@ function BossTable({ stats }: Props) {
                     </th>
                     <th scope='col' className='py-3 px-6'>
                         Rank
+                    </th>
+                    <th scope='col' className='py-3 px-6'>
+                        EHB
                     </th>
                 </tr>
             </thead>
@@ -50,6 +54,9 @@ function BossTable({ stats }: Props) {
                         </td>
                         <td className='py-2 px-6'>
                             {value[3]}
+                        </td>
+                        <td className='py-2 px-6'>
+                            {value[4].toFixed(2)}
                         </td>
                     </tr>
                 ))}

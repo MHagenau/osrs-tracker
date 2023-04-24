@@ -1,38 +1,36 @@
-import { statSync } from 'fs'
 import React from 'react'
 
 type Props = {
     stats: any
-    test_stats: any
 }
 
 
-function SkillTable({ stats, test_stats }: Props) {
+function SkillTable({ stats }: Props) {
   
     const playerSkills: any[] = []
 
-    for (let skill in test_stats.latestSnapshot.data.skills) {
+    for (let skill in stats.latestSnapshot.data.skills) {
         var imgPath = `./skill_icons/${skill}.png`
         playerSkills.push([
             imgPath,
             skill, 
-            test_stats.latestSnapshot.data.skills[skill].rank,
-            test_stats.latestSnapshot.data.skills[skill].level, 
-            test_stats.latestSnapshot.data.skills[skill].experience,
-            test_stats.latestSnapshot.data.skills[skill].ehp
+            stats.latestSnapshot.data.skills[skill].rank,
+            stats.latestSnapshot.data.skills[skill].level, 
+            stats.latestSnapshot.data.skills[skill].experience,
+            stats.latestSnapshot.data.skills[skill].ehp
         ])
     }
 
   return (
     <div className='h-screen flex flex-col items-center text-center'>
-        <table className='w-1/3 text-sm text-left text-gray-400'>
+        <table className='w-2/5 text-sm text-left text-gray-400'>
             <thead className='text-xs uppercase dark:bg-[#1f1f1f] tracking-[2px]'>
                 <tr>
                     <th scope='col' className='py-3 px-6'>
                         Skill
                     </th>
                     <th scope='col' className='py-3 px-6'>
-                        Rank
+                        Rank    
                     </th>
                     <th scope='col' className='py-3 px-6'>
                         Level

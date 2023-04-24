@@ -2,7 +2,6 @@ import React from 'react'
 import { motion } from "framer-motion"
 
 type Props = {
-    stats: any
     combatLvl: number
     totalExp: number
     totalRank: number
@@ -13,24 +12,7 @@ type Props = {
     ttm: number
 }
 
-function InfoBoxes({ stats, combatLvl, totalExp, totalRank, ehp, ehpRank, ehb, ehbRank, ttm }: Props) {
-
-    function calc_combatlvl(stats: any){
-        const baseCb = 1/4 * (stats.defence.level + stats.hitpoints.level 
-                       + (stats.prayer.level/2)) 
-        const meleeCb = 13/40 * (stats.attack.level + stats.strength.level)
-        const rangeCb = 13/40 * (stats.ranged.level * 3/2)
-        const mageCb = 13/40 * (stats.magic.level * 3/2)
-
-        return (baseCb + Math.max(meleeCb, rangeCb, mageCb)).toFixed(2)
-    }
-
-    function total_xp_box(data: any){
-          const exp = (data.xp / 1000000).toFixed(2).toString()
-        const formattetExp = `${exp}m xp`
-        return formattetExp
-    }
-
+function InfoBoxes({ combatLvl, totalExp, totalRank, ehp, ehpRank, ehb, ehbRank, ttm }: Props) {
 
     return (
         <motion.div
