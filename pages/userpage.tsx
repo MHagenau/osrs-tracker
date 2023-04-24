@@ -12,10 +12,9 @@ import UserpageContent from '../components/UserpageContent';
 const PlayerPage: NextPage = () => {
   const router = useRouter()
   const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState('');
   const username = router.query.user;
-
   useEffect(() => {
     fetchUser(username);
   }, []);
@@ -45,6 +44,25 @@ const PlayerPage: NextPage = () => {
     }
   };
   console.log(data)
+  console.log(isLoading)
+
+  if (isLoading === true) {
+    return (
+      <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-proximity overflow-scroll z-0
+      scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80'>
+
+        <Head>
+        <title>Oldschool RuneScape Tracker</title>
+        </Head>
+
+        <Header />
+
+        <h2>Loading ...</h2>
+
+        </div>
+    )
+  }
+
   return (
   
     <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-proximity overflow-scroll z-0
@@ -58,7 +76,7 @@ const PlayerPage: NextPage = () => {
 
       <UserpageContent  statsJson={statsJson}
                         username={router.query.user}
-                        playerStats={test_data}/>
+                        playerStats={data}/>
 
     </div>
   );
