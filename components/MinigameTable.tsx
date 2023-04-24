@@ -1,4 +1,3 @@
-import { statSync } from 'fs'
 import React from 'react'
 
 type Props = {

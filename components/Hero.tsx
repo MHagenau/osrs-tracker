@@ -1,8 +1,8 @@
-import Link from 'next/link';
 import React from 'react'
+import Link from 'next/link';
+import { useState } from 'react';
 import Typewriter from 'typewriter-effect';
 import BackgroundCircles from './BackgroundCircles';
-import { useState } from 'react';
 
 
 const Hero = () => {

@@ -1,10 +1,9 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Header from '../components/Header';
-import test_data from '../json_response_wom.json' assert {type: "json"};
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router'
 import React from 'react';
+import Head from 'next/head'
+import type { NextPage } from 'next'
+import { useRouter } from 'next/router'
+import Header from '../components/Header';
+import { useEffect, useState } from 'react';
 import UserpageContent from '../components/UserpageContent';
 
 
@@ -23,7 +22,6 @@ const PlayerPage: NextPage = () => {
     setErr('')
     try {
       const url = `https://api.wiseoldman.net/v2/players/${username}`
-      console.log(url)
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`Error! status: ${response.status}`);
@@ -39,11 +37,8 @@ const PlayerPage: NextPage = () => {
       }
     } finally {
       setIsLoading(false);
-      console.log(data)
     }
   };
-  console.log(data)
-  console.log(isLoading)
 
   if (isLoading === true) {
     return (

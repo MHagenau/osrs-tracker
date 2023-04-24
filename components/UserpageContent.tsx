@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
 import InfoBoxes from './InfoBoxes'
-import PlayerHeader from './PlayerHeader'
-import { motion } from "framer-motion"
-import SkillTable from './SkillTable'
 import BossTable from './BossTable'
+import SkillTable from './SkillTable'
+import { motion } from "framer-motion"
+import React, { useState } from 'react'
+import PlayerHeader from './PlayerHeader'
 import MinigameTable from './MinigameTable'
 
 type Props = {
