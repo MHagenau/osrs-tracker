@@ -12,10 +12,12 @@ const PlayerPage: NextPage = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState('');
-  const username = router.query.user;
+
   useEffect(() => {
-    fetchUser(username);
-  }, []);
+    if (router.query.user != undefined) {
+      fetchUser(router.query.user);
+    }
+  }, [router.query.user]);
 
   const fetchUser = async ( username: string | string[] | undefined ) => {
     setIsLoading(true);
@@ -56,7 +58,8 @@ const PlayerPage: NextPage = () => {
         </div>
     )
   }
-
+  
+  console.log(data)
   return (
   
     <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-proximity overflow-scroll z-0
