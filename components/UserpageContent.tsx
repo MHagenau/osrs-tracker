@@ -14,7 +14,7 @@ type Props = {
 }
 
 
-function userpageContent( {statsJson, username, playerStats}: Props) {
+function UserpageContent( {statsJson, username, playerStats}: Props) {
     const [selectsStatType, setSelectsStatType] = useState("Skills")
     const [selectsType, setSelectsType] = useState("Overview")
 
@@ -79,4 +79,4 @@ function userpageContent( {statsJson, username, playerStats}: Props) {
   )
 }
 
-export default userpageContent
+export default UserpageContent
