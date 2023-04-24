@@ -44,27 +44,37 @@ function UserpageContent( { playerStats }: Props) {
         return sinceUpdate
     }
 
-    function calcPercentToMax(ttm: number) {
-        const totalMaxTime = 1800
+    function calcPercentToMax(ttm: number, accType: string) {
+        if (accType === 'regular') {
+            var totalMaxTime = 962.92
+        } else if (accType === 'ironman' || accType === 'hardcore') {
+            var totalMaxTime = 1603.43
+        } else if (accType === 'ultimate') {
+            var totalMaxTime = 2063.70
+        } else {
+            var totalMaxTime = 0
+        }
+
         if (ttm === 0) {
             return '100%'
         } else {
-            const percentLeft = ((ttm / totalMaxTime) * 100).toFixed(1)
+            const percentLeft = (((totalMaxTime - ttm) / totalMaxTime) * 100).toFixed(1)
             return `${percentLeft}%`
              
         }
     }
-    const percentToMax = calcPercentToMax(playerStats.ttm)
+    const percentToMax = calcPercentToMax(playerStats.ttm, playerStats.type)
     const sinceUpdate = timeDifference(currTime, lastChanged)
 
 
     function playerTable(drpdownInputStatType: string, drpdownInputType: string){
-        if (drpdownInputStatType === 'Skills')
-        return <SkillTable stats={playerStats} />
-        else if (drpdownInputStatType === 'Bosses')
-        return <BossTable stats={playerStats} />
-        else
-        return <MinigameTable stats={playerStats} />
+        if (drpdownInputStatType === 'Skills') {
+            return <SkillTable stats={playerStats} /> 
+        } else if (drpdownInputStatType === 'Bosses') {
+            return <BossTable stats={playerStats} />
+        } else {
+            return <MinigameTable stats={playerStats} />
+        }
     }
 
   return (
