@@ -26,7 +26,6 @@ function UserpageContent( { playerStats }: Props) {
         var minutesDifference = Math.floor(difference/1000/60);
         difference -= minutesDifference*1000*60
         var secondsDifference = Math.floor(difference/1000);
-        
         if (daysDifference != 0) {
             var sinceUpdate = daysDifference + ((daysDifference > 0) ? ' day ' : ' days ') + 
                                 hoursDifference + ((daysDifference > 0) ? ' hour ' : ' hours ') + 
@@ -45,6 +44,17 @@ function UserpageContent( { playerStats }: Props) {
         return sinceUpdate
     }
 
+    function calcPercentToMax(ttm: number) {
+        const totalMaxTime = 1800
+        if (ttm === 0) {
+            return '100%'
+        } else {
+            const percentLeft = ((ttm / totalMaxTime) * 100).toFixed(1)
+            return `${percentLeft}%`
+             
+        }
+    }
+    const percentToMax = calcPercentToMax(playerStats.ttm)
     const sinceUpdate = timeDifference(currTime, lastChanged)
 
 
@@ -60,7 +70,8 @@ function UserpageContent( { playerStats }: Props) {
   return (
     <div>
         <PlayerHeader displayName={playerStats.displayName}
-                      sinceUpdate={sinceUpdate}/>
+                      sinceUpdate={sinceUpdate}
+                      progressToMax={percentToMax}/>
 
         <InfoBoxes combatLvl={playerStats.combatLevel}
                    totalExp={playerStats.exp}

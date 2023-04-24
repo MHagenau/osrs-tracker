@@ -4,9 +4,10 @@ import { motion } from "framer-motion"
 type Props = {
     displayName: any
     sinceUpdate: string
+    progressToMax: string
 }
 
-function PlayerHeader({ displayName, sinceUpdate }: Props) {
+function PlayerHeader({ displayName, sinceUpdate, progressToMax }: Props) {
     return (
         <div>
             <motion.section
@@ -41,10 +42,12 @@ function PlayerHeader({ displayName, sinceUpdate }: Props) {
                 </div>
                 <div className="flex items-center justify-between mt-2">
                     <span className="text-gray-400 text-sm">Progress towards max</span>
-                    <span className="text-gray-400 text-sm">80 %</span>
+                    <span className="text-gray-400 text-sm">{progressToMax}</span>
                 </div>
                 <div className="h-1 w-full bg-black mt-1 rounded-full">
-                    <div className="h-1 rounded-full w-80%  bg-[#F7AB0A]/80"></div>
+                    <div className="mb-6 h-1 w-full bg-neutral-200 dark:bg-neutral-600">
+                        <div className="h-1 bg-[#F7AB0A]/80" style={{width: `${progressToMax}`}}></div>
+                    </div>
                 </div>
             </motion.section>
         </div>
