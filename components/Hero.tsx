@@ -20,8 +20,8 @@ const Hero = () => {
         alt=""
       />
       <div className='z-20'>
-        <h2 className='text-xl uppercase text-gray-500 pb-2 tracking-[15px]'>Zuk Tracker</h2>
-        <h1 className='text-2xl lg:text-3xl font-semibold px-10'>
+        <h2 className='md:text-xl text-base uppercase text-gray-500 pb-2 md:tracking-[15px] tracking-[10px]'>Zuk Tracker</h2>
+        <h1 className='md:text-2xl lg:text-3xl text-base font-semibold px-10'>
           <span>
             <Typewriter
               options={{
@@ -37,12 +37,12 @@ const Hero = () => {
           </span>
         </h1>
       </div>
-      <div className='w-[500px]'>
+      <div className='md:w-[500px] w-3/4'>
         <form>   
           <div className="relative">
-            <input className="block p-4 pl-4 w-full text-base text-gray-300 focus:outline-none
+            <input className="block p-4 pl-4 w-full md:text-base text-xs text-gray-300 focus:outline-none
                        bg-[#333333] rounded-lg border border-[#F7AB0A]/20 focus:ring-[#F7AB0A]/80 focus:border-[#F7AB0A]/80"
-                       placeholder="Lookup player or start tracking new username ..."
+                       placeholder="Lookup or start tracking a player ..."
                        type="text"
                        id="username"
                        name="username"
@@ -53,8 +53,8 @@ const Hero = () => {
                 pathname: '/userpage',
                 query: { user: username },
               }}>
-              <button className="text-white absolute right-2.5 bottom-2.5 bg-[#F7AB0A]/20 hover:bg-[#F7AB0A]/50 
-                      focus:ring-2 focus:ring-[#F7AB0A]/80 focus:outline-none font-medium rounded-lg text-sm px-6 py-2"
+              <button className="text-white absolute right-1.5 bottom-2.5 bg-[#F7AB0A]/20 hover:bg-[#F7AB0A]/50 
+                      focus:ring-1 focus:ring-[#F7AB0A]/80 focus:outline-none rounded-lg md:text-sm text-xs px-3 py-2"
                       type='button'>
                 Lookup
               </button>

@@ -11,7 +11,7 @@ function About({}: Props) {
         transition={{duration: 1.5}}
         className='flex flex-col relative h-screen text-center md:text-left md:flex-row 
                    max-w-7xl px-10 justify-evenly mx-auto items-center'>
-        <h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl'>
+        <h3 className='absolute md:top-24 top-20 uppercase md:tracking-[20px] tracking-[10px] text-gray-500 md:text-2xl text-xl'>
             About 
         </h3>
 
@@ -27,12 +27,12 @@ function About({}: Props) {
             opacity: 1, x:0
         }}
         src='https://oldschool.runescape.wiki/images/Infernal_cape_equipped.gif?3f996'
-        className='-mb-20 md:mb-0 flex-shrink-0 w-60 h-60 rounded-full object-scale-down
+        className='-mb-20 md:mb-0 flex-shrink-0 w-12 rounded-full object-scale-down
                    md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]'/>
 
         <div className='space-y-10 px-0 md:px-10'>
-            <h4 className='text-4xl font-semibold'> Zuk <span className='underline decoration-[#F7AB0A]/50'>Oldschool RuneScape</span> Tracker</h4>
-            <p className='text-base'>
+            <h4 className='md:text-4xl text-lg font-semibold'> Zuk <span className='underline decoration-[#F7AB0A]/80'>Oldschool RuneScape</span> Tracker</h4>
+            <p className='text-sm'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
                 et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
                 aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 

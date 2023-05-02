@@ -10,7 +10,7 @@ export default function Header({}: Props) {
         setUsername(event.target.value);
       }
   return (
-    <header className='sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center'>
+    <header className='top-0 p-5 flex items-start justify-between max-w-6xl mx-auto z-20 xl:items-center'>
         <motion.div 
             initial={{
                 x: -500,
@@ -46,7 +46,7 @@ export default function Header({}: Props) {
                         query: {user: username},
                         }}>
                     <button formAction="/userpage" className="text-white absolute right-1.5 bottom-1.5 bg-[#F7AB0A]/20 hover:bg-[#F7AB0A]/50 
-                            focus:ring-2 focus:ring-[#F7AB0A]/80 focus:outline-none md:font-medium font-xs rounded-lg text-xs md:px-4 px-1 py-1">
+                            focus:ring-2 focus:ring-[#F7AB0A]/80 focus:outline-none font-xs rounded-lg text-xs md:px-4 px-1 py-1">
                     Lookup
                     </button>
                     </Link>

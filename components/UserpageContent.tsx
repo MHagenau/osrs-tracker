@@ -63,6 +63,7 @@ function UserpageContent( { playerStats }: Props) {
              
         }
     }
+    
     const percentToMax = calcPercentToMax(playerStats.ttm, playerStats.type)
     const sinceUpdate = timeDifference(currTime, lastChanged)
 
