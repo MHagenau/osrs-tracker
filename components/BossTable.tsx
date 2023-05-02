@@ -14,6 +14,12 @@ function BossTable({ stats }: Props) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
+    function formatString(str: string): string {
+        str = str.replace(/_/g, " ");
+        str = str.replace(/\b(?!of)\w+/g, (match: string) => match.charAt(0).toUpperCase() + match.slice(1).toLowerCase());
+        return str;
+    }
+
     for (let boss in stats.latestSnapshot.data.bosses) {
         var imgPath = `./boss_icons/${boss}.png`
         playerBoss.push([
@@ -82,14 +88,14 @@ function BossTable({ stats }: Props) {
                                 <img className="w-4 h-4 inline object-scale-down" 
                                     src={value[0]}
                                     alt="" />
-                                <p className='inline pl-2'>{value[1].charAt(0).toUpperCase() + value[1].slice(1)}</p>
+                                <p className='inline pl-2'>{formatString(value[1])}</p>
                             </div>
                         </th>
                         <td className='py-2 px-6'>
-                            {numberWithCommas(value[2])}
+                            {value[2] != '-1' ? numberWithCommas(value[2]) : '0'}
                         </td>
                         <td className='py-2 px-6'>
-                            {numberWithCommas(value[3])}
+                            {value[3] != '-1' ? numberWithCommas(value[3]) : '0'}
                         </td>
                         <td className='py-2 px-6'>
                             {value[4].toFixed(2)}

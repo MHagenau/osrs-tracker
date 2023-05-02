@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from "framer-motion";
 import Link from 'next/link';
 
 type Props = {}
 
 export default function Header({}: Props) {
+    const [username, setUsername] = useState('');
+
+    const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+      setUsername(event.target.value);
+    }
   return (
     <header className='top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center'>
         <motion.div 
@@ -31,8 +36,16 @@ export default function Header({}: Props) {
                 <div className="relative">
                     <input className="block p-2.5 pl-2 w-full text-xs text-gray-500 bg-[#333333] rounded-lg
                                     focus:ring-[#F7AB0A]/80 focus:border-[#F7AB0A]/80"
-                            placeholder="Lookup player ..."/>
-                    <Link href="/userpage">
+                            placeholder="Lookup player ..."
+                            type="text"
+                            id="username"
+                            name="username"
+                            onChange={handleChange}
+                            value={username}/>
+                    <Link href={{
+                            pathname: '/userpage',
+                            query: { user: username },
+                        }}>
                     <button formAction="/userpage" className="text-white absolute right-1.5 bottom-2 bg-[#F7AB0A]/50 hover:bg-[#F7AB0A]/80
                             focus:ring-1 focus:ring-[#F7AB0A]/50 focus:outline-none font-light rounded-lg text-xs md:px-4 px-1 py-0.5">
                         Lookup
