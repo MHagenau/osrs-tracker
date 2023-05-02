@@ -9,6 +9,10 @@ function MinigameTable({ stats }: Props) {
     const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
     const [sortColumn, setSortColumn] = useState<number>(2);
     const playerMinigame: any[] = []
+
+    function numberWithCommas(x: number) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
     
     for (let minigame in stats.latestSnapshot.data.activities) {
         var imgPath = `./minigame_icons/${minigame}.png`
@@ -44,7 +48,7 @@ function MinigameTable({ stats }: Props) {
 
   return (
     <div className='flex md:w-1/2 w-4/5 relative overflow-x-auto shadow-md sm:rounded-lg mx-auto'>
-        <table className='w-full text-sm text-left text-gray-400'>
+        <table className='w-full text-sm text-left text-gray-400 mb-10'>
             <thead className='text-xs uppercase bg-[#F7AB0A]/80 text-gray-900'>
                 <tr>
                     <th scope='col' className='py-3 px-6'>
@@ -76,10 +80,10 @@ function MinigameTable({ stats }: Props) {
                             </div>
                         </th>
                         <td className='py-2 px-6'>
-                            {value[2]}
+                            {numberWithCommas(value[2])}
                         </td>
                         <td className='py-2 px-6'>
-                            {value[3]}
+                            {numberWithCommas(value[3])}
                         </td>
                     </tr>
                 ))}

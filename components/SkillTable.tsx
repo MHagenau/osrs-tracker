@@ -10,6 +10,10 @@ function SkillTable({ stats }: Props) {
     const [sortColumn, setSortColumn] = useState<number>(4);
     const playerSkills: any[] = []
 
+    function numberWithCommas(x: number) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
     for (let skill in stats.latestSnapshot.data.skills) {
         var imgPath = `./skill_icons/${skill}.png`
         playerSkills.push([
@@ -46,8 +50,8 @@ function SkillTable({ stats }: Props) {
 
   return (
     <div className='flex md:w-1/2 w-4/5 relative overflow-x-auto shadow-md sm:rounded-lg mx-auto'>
-        <table className='w-full text-sm text-left text-gray-400'>
-            <thead className='text-xs uppercase bg-[#F7AB0A]/80 text-gray-900'>
+        <table className='w-full text-sm text-left text-gray-400 mb-10'>
+            <thead className='text-sm uppercase bg-[#F7AB0A]/80 text-gray-900'>
                 <tr>
                     <th scope='col' className='py-3 px-6'>
                         Skill
@@ -90,13 +94,13 @@ function SkillTable({ stats }: Props) {
                             </div>
                         </th>
                         <td className='py-2 px-6'>
-                            {value[2]}
+                            {numberWithCommas(value[2])}
                         </td>
                         <td className='py-2 px-6'>
                             {value[3]}
                         </td>
                         <td className='py-2 px-6'>
-                            {value[4]}
+                            {numberWithCommas(value[4])}
                         </td>
                         <td className='py-2 px-6'>
                             {value[5].toFixed(2)}

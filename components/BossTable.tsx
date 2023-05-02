@@ -10,6 +10,10 @@ function BossTable({ stats }: Props) {
     const [sortColumn, setSortColumn] = useState<number>(4);
     const playerBoss: any[] = []
 
+    function numberWithCommas(x: number) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
     for (let boss in stats.latestSnapshot.data.bosses) {
         var imgPath = `./boss_icons/${boss}.png`
         playerBoss.push([
@@ -41,10 +45,11 @@ function BossTable({ stats }: Props) {
     }
 
     sortTable(playerBoss, sortColumn, sortOrder)
+
   return (
     <div className='flex md:w-1/2 w-4/5 relative overflow-x-auto shadow-md sm:rounded-lg mx-auto'>
-        <table className='w-full text-sm text-left text-gray-400'>
-            <thead className='text-xs uppercase bg-[#F7AB0A]/80 text-gray-900'>
+        <table className='w-full text-sm text-left text-gray-400 mb-10'>
+            <thead className='text-sm uppercase bg-[#F7AB0A]/80 text-gray-900'>
                 <tr>
                     <th scope='col' className='py-3 px-6'>
                         Boss
@@ -81,10 +86,10 @@ function BossTable({ stats }: Props) {
                             </div>
                         </th>
                         <td className='py-2 px-6'>
-                            {value[2]}
+                            {numberWithCommas(value[2])}
                         </td>
                         <td className='py-2 px-6'>
-                            {value[3]}
+                            {numberWithCommas(value[3])}
                         </td>
                         <td className='py-2 px-6'>
                             {value[4].toFixed(2)}
