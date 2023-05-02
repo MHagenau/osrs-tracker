@@ -31,9 +31,9 @@ function InfoBoxes({ combatLvl, totalExp, totalRank, ehp, ehpRank, ehb, ehbRank,
         }}
         className='flex items-center justify-center mt-5'>
             <div className='md:w-1/2 w-4/5 grid xl:grid-cols-5 grid-cols-2 gap-3'>
-                <div className="w-full bg-[#1f1f1f] rounded-2xl px-4 shadow-lg text-xs">
+                <div className="w-full bg-[#1f1f1f] rounded-2xl px-4 shadow-lg text-sm">
                     <div className='grid grid-rows-2 grid-flow-col'>
-                        <img className="mx-auto row-span-2  mt-[22px]"
+                        <img className="mx-auto row-span-2  mt-[27px]"
                             src='./various_icons/combat.png'
                             alt=''
                         />
@@ -41,9 +41,9 @@ function InfoBoxes({ combatLvl, totalExp, totalRank, ehp, ehpRank, ehb, ehbRank,
                         <p className='text-gray-500'>{combatLvl}</p>
                     </div>
                 </div>
-                <div className="w-full bg-[#1f1f1f] rounded-2xl px-4 shadow-lg text-xs">
+                <div className="w-full bg-[#1f1f1f] rounded-2xl px-4 shadow-lg text-sm">
                     <div className='grid grid-rows-2 grid-flow-col'>
-                        <img className="mx-auto row-span-2  mt-[22px]"
+                        <img className="mx-auto row-span-2  mt-[27px]"
                             src='./various_icons/overall.png'
                             alt=''
                         />
@@ -51,9 +51,9 @@ function InfoBoxes({ combatLvl, totalExp, totalRank, ehp, ehpRank, ehb, ehbRank,
                         <p className='text-gray-500'>Rank: {totalRank}</p>
                     </div>
                 </div>
-                <div className="w-full bg-[#1f1f1f] rounded-2xl px-4 shadow-lg text-xs"> 
+                <div className="w-full bg-[#1f1f1f] rounded-2xl px-4 shadow-lg text-sm"> 
                     <div className='grid grid-rows-2 grid-flow-col'>
-                        <img className="mx-auto row-span-2  mt-[21px]"
+                        <img className="mx-auto row-span-2  mt-[26px]"
                             src='./various_icons/ehp.png'
                             alt=''
                         />
@@ -61,9 +61,9 @@ function InfoBoxes({ combatLvl, totalExp, totalRank, ehp, ehpRank, ehb, ehbRank,
                         <p className='text-gray-500'>Rank: {ehpRank}</p>
                     </div>
                 </div>
-                <div className="w-full bg-[#1f1f1f] rounded-2xl px-4 shadow-lg text-xs"> 
+                <div className="w-full bg-[#1f1f1f] rounded-2xl px-4 shadow-lg text-sm"> 
                     <div className='grid grid-rows-2 grid-flow-col'>
-                        <img className="mx-auto row-span-2  mt-[21px]"
+                        <img className="mx-auto row-span-2  mt-[26px]"
                             src='./various_icons/ehb.png'
                             alt=''
                         />
@@ -71,9 +71,9 @@ function InfoBoxes({ combatLvl, totalExp, totalRank, ehp, ehpRank, ehb, ehbRank,
                         <p className='text-gray-500'>Rank: {ehbRank}</p>
                     </div>
                 </div>
-                <div className="w-full bg-[#1f1f1f] rounded-2xl px-4 shadow-lg text-xs"> 
+                <div className="w-full bg-[#1f1f1f] rounded-2xl px-4 shadow-lg text-sm"> 
                     <div className='grid grid-rows-2 grid-flow-col'>
-                        <img className="mx-auto row-span-2  mt-[21px]"
+                        <img className="mx-auto row-span-2  mt-[26px]"
                             src='./various_icons/ttm.png'
                             alt=''
                         />
