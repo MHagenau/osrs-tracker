@@ -107,13 +107,13 @@ function UserpageContent( { playerStats }: Props) {
         viewport={{ 
             once: true
         }}>
-            <div className='flex w-1/3 pt-5 pb-5 justify-center items-center mx-auto'>
-                <select className='w-3/5 p-2 mr-5 text-gray-400 bg-[#1f1f1f] rounded-lg'
+            <div className='grid md:grid-cols-2 md:w-1/2 grid-cols-1 w-4/5 pt-5 pb-5 justify-center items-center mx-auto'>
+                <select className='p-2 md:mr-2 text-gray-400 bg-[#1f1f1f] rounded-lg'
                         value={selectsType} onChange={e => setSelectsType(e.target.value)}>
                     <option>Overview</option>
                     <option>Gained</option>
                 </select>
-                <select className='w-3/5 p-2 ml-5 text-gray-400 bg-[#1f1f1f] rounded-lg'
+                <select className='p-2 md:ml-2 md:mt-0 mt-2 text-gray-400 bg-[#1f1f1f] rounded-lg'
                         value={selectsStatType} onChange={e => setSelectsStatType(e.target.value)}>
                     <option>Skills</option>
                     <option>Bosses</option>

@@ -30,7 +30,7 @@ function InfoBoxes({ combatLvl, totalExp, totalRank, ehp, ehpRank, ehb, ehbRank,
             once: true
         }}
         className='flex items-center justify-center mt-5'>
-            <div className='w-1/2 grid grid-cols-5 gap-3'>
+            <div className='md:w-1/2 w-4/5 grid xl:grid-cols-5 grid-cols-2 gap-3'>
                 <div className="w-full bg-[#1f1f1f] rounded-2xl px-4 shadow-lg text-xs">
                     <div className='grid grid-rows-2 grid-flow-col'>
                         <img className="mx-auto row-span-2  mt-[22px]"

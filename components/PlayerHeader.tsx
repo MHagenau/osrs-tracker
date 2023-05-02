@@ -24,9 +24,9 @@ function PlayerHeader({ displayName, sinceUpdate, progressToMax }: Props) {
             viewport={{ 
                 once: true
             }} 
-            className="w-1/2 mx-auto bg-[#1f1f1f] rounded-2xl px-8 py-4 shadow-lg mt-8">
+            className="md:w-1/2 w-4/5 mx-auto bg-[#1f1f1f] rounded-2xl px-8 py-4 shadow-lg mt-8">
                 <div className="flex items-center justify-between">
-                    <span className="text-gray-400 text-xs">Last updated: {sinceUpdate} ago</span>
+                    <span className="text-gray-400 text-xs">Last updated: <br></br>{sinceUpdate} ago</span>
                     <span className="text-[#F7AB0A]/80">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" 
                             viewBox="0 0 24 24" stroke="currentColor">

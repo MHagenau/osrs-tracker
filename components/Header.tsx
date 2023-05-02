@@ -30,7 +30,7 @@ export default function Header({}: Props) {
             }}
             className='flex flex-row items-center'>
 
-        <div className='w-[300px]'>
+        <div className='md:w-[300px] w-[170px]'>
             <form>   
                 <div className="relative">
                     <input className="block p-2.5 pl-4 w-full text-xs text-gray-300 bg-[#333333] rounded-lg
@@ -46,7 +46,7 @@ export default function Header({}: Props) {
                         query: {user: username},
                         }}>
                     <button formAction="/userpage" className="text-white absolute right-1.5 bottom-1.5 bg-[#F7AB0A]/20 hover:bg-[#F7AB0A]/50 
-                            focus:ring-2 focus:ring-[#F7AB0A]/80 focus:outline-none font-medium rounded-lg text-xs px-4 py-1">
+                            focus:ring-2 focus:ring-[#F7AB0A]/80 focus:outline-none md:font-medium font-xs rounded-lg text-xs md:px-4 px-1 py-1">
                     Lookup
                     </button>
                     </Link>
@@ -75,15 +75,15 @@ export default function Header({}: Props) {
             className='flex flex-row items-center text-gray-300'>
             
             <Link href="/#hero">
-                <button className='heroButton'>Home</button>
+                <button className='md:heroButton heroButtonSmall'>Home</button>
             </Link>
             
             <Link href="/#about">
-                <button className='heroButton'>About</button>
+                <button className='md:heroButton heroButtonSmall'>About</button>
             </Link>
 
             <Link href="/#features">
-                <button className='heroButton'>Features</button>
+                <button className='md:heroButton heroButtonSmall'>Features</button>
             </Link>
 
         </motion.div>
