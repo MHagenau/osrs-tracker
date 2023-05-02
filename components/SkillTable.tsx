@@ -6,10 +6,9 @@ type Props = {
 
 
 function SkillTable({ stats }: Props) {
-    const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
-    const [sortColumn, setSortColumn] = useState<number>(2);
+    const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
+    const [sortColumn, setSortColumn] = useState<number>(4);
     const playerSkills: any[] = []
-
 
     for (let skill in stats.latestSnapshot.data.skills) {
         var imgPath = `./skill_icons/${skill}.png`
@@ -23,7 +22,6 @@ function SkillTable({ stats }: Props) {
         ])
     }
 
-
     function handleTableHeaderClick(columnIndex: number) {
         if (sortColumn === columnIndex) {
           setSortOrder(sortOrder === "asc" ? "desc" : "asc");
@@ -32,7 +30,6 @@ function SkillTable({ stats }: Props) {
           setSortOrder("asc");
         }
     }
-
 
     function sortTable (playerSkills: any[], sortColumn: number, sortOrder: string) {
         if (sortOrder == 'desc') {
@@ -45,10 +42,8 @@ function SkillTable({ stats }: Props) {
         return sortedArray
     }
 
-
     sortTable(playerSkills, sortColumn, sortOrder)
 
-    
   return (
     <div className='flex md:w-1/2 w-4/5 relative overflow-x-auto shadow-md sm:rounded-lg mx-auto'>
         <table className='w-full text-sm text-left text-gray-400'>
